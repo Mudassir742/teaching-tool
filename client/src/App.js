@@ -57,9 +57,9 @@ const App = () => {
   return (
     <Box className="main-container">
       <Grid container className="content">
-        <Grid item xs={3} className="btn-menu">
+        <Grid item xs={2} className="btn-menu">
           <Card className="card">
-            <Grid container xs={12}>
+            <Grid container>
               <Grid item xs={12} className="btn-section one">
                 <Button
                   color={noteColor}
@@ -104,20 +104,6 @@ const App = () => {
                   setMediaBlobUrl={getRecordedVedio}
                   disableButton={screenFlag}
                 />
-              </Grid>
-              <Divider
-                sx={{
-                  backgroundColor: "rgb(129, 129, 129);",
-                  margin: "1.5rem 0",
-                }}
-              />
-
-              <Grid item xs={12} className="btn-section two">
-                <Button variant="contained" sx={{ marginBottom: ".8rem" }}>
-                  Start Camera Recording
-                </Button>
-
-                <Button variant="contained">Stop Camera Recording</Button>
               </Grid>
               <Divider
                 sx={{
@@ -197,7 +183,7 @@ const App = () => {
             </Grid>
           </Card>
         </Grid>
-        <Grid item xs={9} className="screens">
+        <Grid item xs={10} className="screens">
           <Card className="card">
             <Grid container className="screenContainer">
               {noteFlag && (

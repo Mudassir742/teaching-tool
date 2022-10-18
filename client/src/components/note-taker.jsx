@@ -7,7 +7,7 @@ const NoteTaker = () => {
 
   return (
     <ReactQuill
-      //theme="snow"
+      theme="snow"
       value={value}
       onChange={setValue}
       style={{
