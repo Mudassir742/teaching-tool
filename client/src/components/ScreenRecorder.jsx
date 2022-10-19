@@ -9,7 +9,6 @@ const ScreenRecorder = ({ setMediaBlobUrl, disableButton }) => {
         screen
         render={({ status, startRecording, stopRecording, mediaBlobUrl,}) => (
           <div>
-            {/* <p>Status : {status}</p> */}
             <div
               style={{
                 display: "flex",

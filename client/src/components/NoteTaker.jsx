@@ -13,8 +13,7 @@ const NoteTaker = ({parentHeight}) => {
         style={{
           minHeight:"300px",
           height:"100%",
-          maxHeight:'100%',
-          border:'1px solid red'
+          maxHeight:'100%'
         }}
       />
   );

@@ -32,20 +32,6 @@ body {
   border-radius: 12px;
 }
 
-/* .btn-section {
-  /* display: flex;
-  flex-direction: column; 
-}
-
-.screens {
-  /* min-width: 71vw;
-  width: 100%;
-  max-height: 95vh;
-  height: 100%;
-  padding: 1rem;
-  margin: 1rem .8rem; 
-} */
-
 .screenContainer {
   min-width: 100%;
   min-height: 100%;
@@ -53,6 +39,12 @@ body {
 
 .drawingToolbarSection {
   height: 40px;
+}
+
+.cameraContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cameraContainer video {

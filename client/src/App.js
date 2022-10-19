@@ -115,17 +115,17 @@ const App = () => {
           <Card className="card">
             <Grid container className="screenContainer">
               {whiteboardFlag && (
-                <Grid item xs={12} style={{ border: "1px solid blue" }}>
+                <Grid item xs={12}>
                   <WhiteBoard />
                 </Grid>
               )}
               {noteFlag && (
-                <Grid item xs={6} style={{ border: "2px solid green" }}>
+                <Grid item xs={6}>
                   <NoteTaker />
                 </Grid>
               )}
               {camFlag && (
-                <Grid item xs={6} style={{ border: "1px solid black" }}>
+                <Grid item xs={6}>
                   <WebCam />
                 </Grid>
               )}

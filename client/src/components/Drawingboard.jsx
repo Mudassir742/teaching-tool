@@ -12,7 +12,7 @@ const WhiteBoard = () => {
     <div
       ref={parentRef}
       style={{
-        border: "1px solid yellow",
+        border: "1px solid #9C27B0",
         height: "100%",
         maxHeight: "100%",
       }}
@@ -43,7 +43,7 @@ const WhiteBoard = () => {
 
       <SketchField
         undoSteps="0"
-        backgroundColor="red"
+        backgroundColor="#f0ffd4"
         key="user1"
         tool={tool}
         lineColor="black"
