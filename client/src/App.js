@@ -4,17 +4,17 @@ import { Button, Grid, Divider, Card, Box } from "@mui/material";
 import { Notes, VideoCameraBack, Gesture, Camera } from "@mui/icons-material";
 
 //components
-import ScreenRecorder from "./components/screen-recorder";
-import WebCam from "./components/camera-share";
-import NoteTaker from "./components/note-taker";
-import WhiteBoard from "./components/whiteboard";
+import ScreenRecorder from "./components/ScreenRecorder";
+import WebCam from "./components/Webcam";
+import NoteTaker from "./components/NoteTaker";
+import WhiteBoard from "./components/Drawingboard";
 
 //styles
 import "./App.css";
 
 
 const App = () => {
-  const [mediaBlobUrl, setMediaBlobUrl] = useState(null);
+  const [mediaBlobUrl, setMediaBlobUrl] = useState();
   const [noteFlag, setNoteFlag] = useState(false);
   const [camFlag, setcamFlag] = useState(false);
   const [screenFlag, setscreenFlag] = useState(false);
@@ -105,7 +105,7 @@ const App = () => {
                 setcamFlag(false);
                 setscreenFlag(!screenFlag);
               }}
-              disabled={mediaBlobUrl === undefined ? true : false}
+              disabled={!mediaBlobUrl ? true : false}
             >
               View Video
             </Button>
@@ -130,14 +130,13 @@ const App = () => {
                 </Grid>
               )}
 
-              {screenFlag && mediaBlobUrl !== undefined && (
+              {screenFlag && mediaBlobUrl && (
                 <Grid item xs={12}>
                   <video
-                    height={200}
+                    height="100%"
+                    width="100%"
                     src={mediaBlobUrl}
                     controls
-                    autoPlay
-                    loop
                   />
                 </Grid>
               )}
