@@ -1,5 +1,5 @@
-import { useState } from "react";
-import ReactQuill from "react-quill";
+ import { useState } from "react";
+ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const NoteTaker = () => {
@@ -11,9 +11,9 @@ const NoteTaker = () => {
       value={value}
       onChange={setValue}
       style={{
-        minHeight: "calc(100% - 42px)",
-        maxHeight: "calc(100% - 42px)",
+        minHeight: "300px",
         height: "100%",
+        overflow:'auto'
       }}
     />
   );

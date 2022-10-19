@@ -186,6 +186,11 @@ const App = () => {
         <Grid item xs={10} className="screens">
           <Card className="card">
             <Grid container className="screenContainer">
+            {whiteboardFlag && (
+                <Grid item xs={12} > 
+                  <WhiteBoard />
+                </Grid>
+              )}
               {noteFlag && (
                 <Grid item xs={6}>
                   <NoteTaker />
@@ -196,11 +201,7 @@ const App = () => {
                   <WebCam />
                 </Grid>
               )}
-              {whiteboardFlag && (
-                <Grid item xs={12}>
-                  <WhiteBoard />
-                </Grid>
-              )}
+              
               {screenFlag && mediaBlobUrl !== undefined && (
                 <Grid item xs={12}>
                   <video

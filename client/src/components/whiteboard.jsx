@@ -54,6 +54,8 @@ const WhiteBoard = () => {
   //   }
   // }, [parentRef]);
 
+  console.log(parentHeight)
+
   return (
     <div
     ref={parentRef}
