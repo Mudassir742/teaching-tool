@@ -1,7 +1,12 @@
 import Webcam from "react-webcam";
+import { Box } from "@mui/material";
 
 const WebCam = () => {
-  return <Webcam width={100}/>;
+  return (
+    <Box className="cameraContainer">
+      <Webcam/>
+    </Box>
+  );
 };
 
 export default WebCam;
