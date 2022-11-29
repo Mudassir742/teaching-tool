@@ -12,7 +12,6 @@ import WhiteBoard from "./components/Drawingboard";
 //styles
 import "./App.css";
 
-
 const App = () => {
   const [mediaBlobUrl, setMediaBlobUrl] = useState();
   const [noteFlag, setNoteFlag] = useState(false);
@@ -24,10 +23,14 @@ const App = () => {
 
   const getRecordedVedio = (blobUrl) => {
     if (blobUrl) {
+      console.log(blobUrl);
       const myFile = new File([blobUrl], "demo.mp4", { type: "video/mp4" });
 
       console.log("Media", myFile);
-      setMediaBlobUrl(blobUrl);
+
+      const blobFile = URL.createObjectURL(blobUrl);
+      console.log(blobFile)
+      setMediaBlobUrl(blobFile);
     }
   };
 
