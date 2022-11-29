@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Grid, Divider, Card, Box } from "@mui/material";
 import { Notes, VideoCameraBack, Gesture, Camera } from "@mui/icons-material";
+import axios from "axios";
 
 //components
 import ScreenRecorder from "./components/ScreenRecorder";
@@ -21,16 +22,32 @@ const App = () => {
 
   useEffect(() => {}, [mediaBlobUrl]);
 
-  const getRecordedVedio = (blobUrl) => {
-    if (blobUrl) {
-      console.log(blobUrl);
-      const myFile = new File([blobUrl], "demo.mp4", { type: "video/mp4" });
+  const getRecordedVedio = async (blobUrl) => {
+    try {
+      if (blobUrl) {
+        console.log(blobUrl);
+        const myFile = new File([blobUrl], "demo.mp4", { type: "video/mp4" });
 
-      console.log("Media", myFile);
+        console.log("Media", myFile);
 
-      const blobFile = URL.createObjectURL(blobUrl);
-      console.log(blobFile)
-      setMediaBlobUrl(blobFile);
+        const serverResponse = await axios.post(
+          "http://localhost:5000/video-edit",
+          {
+            videoBlob: myFile,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log(serverResponse.data);
+        const blobFile = URL.createObjectURL(blobUrl);
+        console.log(blobFile);
+        setMediaBlobUrl("http://localhost:5000" + serverResponse.data.url);
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
