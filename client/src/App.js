@@ -1,5 +1,6 @@
 //react
 import React, { useState, useEffect } from "react";
+//material
 import { Button, Grid, Divider, Card, Box } from "@mui/material";
 import {
   Notes,
@@ -8,6 +9,7 @@ import {
   Camera,
   Menu,
   Clear,
+  DesignServices,
 } from "@mui/icons-material";
 
 //components
@@ -28,6 +30,7 @@ const App = () => {
   const [camFlag, setcamFlag] = useState(false);
   const [screenFlag, setscreenFlag] = useState(false);
   const [whiteboardFlag, setwhiteboardFlag] = useState(false);
+  const [showEditVideo, setShowEditVideo] = useState(false);
 
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
@@ -118,7 +121,7 @@ const App = () => {
               }}
             />
             <Button
-              variant={screenFlag ? "container" : "outlined"}
+              variant={screenFlag ? "contained" : "outlined"}
               color="secondary"
               sx={{ marginBottom: ".8rem", width: "100%" }}
               startIcon={<VideoCameraBack />}
@@ -126,11 +129,28 @@ const App = () => {
                 setwhiteboardFlag(false);
                 setNoteFlag(false);
                 setcamFlag(false);
+                setShowEditVideo(false);
                 setscreenFlag(!screenFlag);
               }}
               disabled={!mediaBlobUrl ? true : false}
             >
               View Video
+            </Button>
+            <Button
+              variant={showEditVideo ? "contained" : "outlined"}
+              color="secondary"
+              sx={{ marginBottom: ".8rem", width: "100%" }}
+              startIcon={<DesignServices />}
+              onClick={() => {
+                setwhiteboardFlag(false);
+                setNoteFlag(false);
+                setcamFlag(false);
+                setscreenFlag(false);
+                setShowEditVideo(!showEditVideo);
+              }}
+              disabled={!mediaBlobUrl ? true : false}
+            >
+              Edit Video
             </Button>
           </Card>
         </CustomDrawer>
@@ -158,10 +178,20 @@ const App = () => {
               {screenFlag && mediaBlobUrl && (
                 <Grid item xs={12}>
                   <video
-                    height="100%"
+                    height="80%"
                     width="100%"
                     src={mediaBlobUrl}
                     controls
+                  />
+                </Grid>
+              )}
+
+              {showEditVideo && mediaBlobUrl && (
+                <Grid item xs={12}>
+                  <iframe
+                    src="https://clideo.com/editor/"
+                    width="100%"
+                    height="100%"
                   />
                 </Grid>
               )}
