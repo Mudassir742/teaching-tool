@@ -1,13 +1,22 @@
 //react
 import React, { useState, useEffect } from "react";
-import { Button, Grid, Divider, Card, Box } from "@mui/material";
-import { Notes, VideoCameraBack, Gesture, Camera } from "@mui/icons-material";
+import { Button, Grid, Divider, Card, Box, Drawer } from "@mui/material";
+import {
+  Notes,
+  VideoCameraBack,
+  Gesture,
+  Camera,
+  Menu,
+} from "@mui/icons-material";
 
 //components
 import ScreenRecorder from "./components/ScreenRecorder";
 import WebCam from "./components/Webcam";
 import NoteTaker from "./components/NoteTaker";
 import WhiteBoard from "./components/Drawingboard";
+
+//ui-components
+import CustomDrawer from "./ui-components/CustomDrawer";
 
 //styles
 import "./App.css";
@@ -19,7 +28,13 @@ const App = () => {
   const [screenFlag, setscreenFlag] = useState(false);
   const [whiteboardFlag, setwhiteboardFlag] = useState(false);
 
+  const [isOpenSidebar, setIsOpenSidebar] = useState(true);
+
   useEffect(() => {}, [mediaBlobUrl]);
+
+  const onCloseSidebar = () => {
+    setIsOpenSidebar(true);
+  };
 
   const getRecordedVedio = (blobUrl) => {
     if (blobUrl) {
@@ -29,7 +44,7 @@ const App = () => {
       console.log("Media", myFile);
 
       const blobFile = URL.createObjectURL(blobUrl);
-      console.log(blobFile)
+      console.log(blobFile);
       setMediaBlobUrl(blobFile);
     }
   };
@@ -37,7 +52,10 @@ const App = () => {
   return (
     <Box className="main-container">
       <Grid container className="content">
-        <Grid item xs={2} className="btn-menu">
+        <CustomDrawer
+          isOpenSidebar={isOpenSidebar}
+          onCloseSidebar={onCloseSidebar}
+        >
           <Card className="card btn-section">
             <Button
               color="secondary"
@@ -113,8 +131,9 @@ const App = () => {
               View Video
             </Button>
           </Card>
-        </Grid>
-        <Grid item xs={10} className="screens">
+        </CustomDrawer>
+
+        <Grid item xs={12} className="screens">
           <Card className="card">
             <Grid container className="screenContainer">
               {whiteboardFlag && (
