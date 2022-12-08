@@ -1,12 +1,13 @@
 //react
 import React, { useState, useEffect } from "react";
-import { Button, Grid, Divider, Card, Box, Drawer } from "@mui/material";
+import { Button, Grid, Divider, Card, Box } from "@mui/material";
 import {
   Notes,
   VideoCameraBack,
   Gesture,
   Camera,
   Menu,
+  Clear,
 } from "@mui/icons-material";
 
 //components
@@ -28,12 +29,12 @@ const App = () => {
   const [screenFlag, setscreenFlag] = useState(false);
   const [whiteboardFlag, setwhiteboardFlag] = useState(false);
 
-  const [isOpenSidebar, setIsOpenSidebar] = useState(true);
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
   useEffect(() => {}, [mediaBlobUrl]);
 
   const onCloseSidebar = () => {
-    setIsOpenSidebar(true);
+    setIsOpenSidebar(false);
   };
 
   const getRecordedVedio = (blobUrl) => {
@@ -57,6 +58,7 @@ const App = () => {
           onCloseSidebar={onCloseSidebar}
         >
           <Card className="card btn-section">
+            <Clear className="clearIcon" onClick={onCloseSidebar} />
             <Button
               color="secondary"
               variant={noteFlag ? "contained" : "outlined"}
@@ -135,6 +137,7 @@ const App = () => {
 
         <Grid item xs={12} className="screens">
           <Card className="card">
+            <Menu className="menuIcon" onClick={() => setIsOpenSidebar(true)} />
             <Grid container className="screenContainer">
               {whiteboardFlag && (
                 <Grid item xs={12}>

@@ -28,8 +28,31 @@ body {
 .card {
   max-height: 100%;
   height: 100%;
-  padding: .8rem;
+  padding: 1.8rem;
   border-radius: 12px;
+  position: relative;
+}
+
+.clearIcon {
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.clearIcon:hover, .menuIcon:hover {
+  color: #CD93D7;
+}
+
+.menuIcon {
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  cursor: pointer;
 }
 
 .screenContainer {
@@ -41,7 +64,7 @@ body {
   height: 40px;
 }
 
-.cameraContainer{
+.cameraContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,4 +84,3 @@ body {
   align-items: center;
   justify-content: center;
 }
-
