@@ -189,7 +189,7 @@ const App = () => {
               {showEditVideo && mediaBlobUrl && (
                 <Grid item xs={12}>
                   <iframe
-                    src="https://clideo.com/editor/"
+                    src="http://localhost:5000/"
                     width="100%"
                     height="100%"
                   />
