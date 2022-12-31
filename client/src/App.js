@@ -205,7 +205,7 @@ const App = () => {
               {showEditVideo && mediaBlobUrl && (
                 <Grid item xs={12}>
                   <iframe
-                    src="http://localhost:5000/"
+                    src={process.env.REACT_API_URL}
                     width="100%"
                     height="100%"
                   />
