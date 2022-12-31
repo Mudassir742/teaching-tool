@@ -27,7 +27,7 @@ const WhiteBoard = () => {
         style={{
           width: `${parentWidth - 5}px`,
           height: `${parentHeight - 45}px`,
-          minHeight:"40vh"
+          minHeight:"90vh"
         }}
       />
 

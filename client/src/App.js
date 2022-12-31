@@ -155,22 +155,38 @@ const App = () => {
           </Card>
         </CustomDrawer>
 
-        <Grid item xs={12} className="screens">
+        <Grid item xs={12} spacing={1} className="screens">
           <Card className="card">
             <Menu className="menuIcon" onClick={() => setIsOpenSidebar(true)} />
             <Grid container className="screenContainer">
               {whiteboardFlag && (
-                <Grid item xs={12}>
+                <Grid item xs={!noteFlag && !camFlag ? 12 : 7}>
                   <WhiteBoard />
                 </Grid>
               )}
               {noteFlag && (
-                <Grid item xs={6}>
-                  <NoteTaker />
+                <Grid
+                  item
+                  xs={
+                    !whiteboardFlag && !camFlag
+                      ? 12
+                      : !whiteboardFlag && camFlag
+                      ? 7
+                      : 5
+                  }
+                >
+                  <NoteTaker
+                    whiteboardFlag={whiteboardFlag}
+                    camFlag={camFlag}
+                  />
                 </Grid>
               )}
               {camFlag && (
-                <Grid item xs={6}>
+                <Grid
+                  item
+                  xs={5}
+                  style={{ position: "absolute", right: 0, bottom: "20px" }}
+                >
                   <WebCam />
                 </Grid>
               )}

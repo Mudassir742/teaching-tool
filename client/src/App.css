@@ -67,11 +67,12 @@ body {
 .cameraContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 1.5rem;
 }
 
 .cameraContainer video {
-  width: 70%;
+  width: 40%;
   height: 20%;
 }
 
