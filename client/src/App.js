@@ -40,6 +40,8 @@ const App = () => {
     setIsOpenSidebar(false);
   };
 
+  console.log(process.env.REACT_APP_API_URL)
+
   const getRecordedVedio = (blobUrl) => {
     if (blobUrl) {
       console.log(blobUrl);
@@ -205,7 +207,8 @@ const App = () => {
               {showEditVideo && mediaBlobUrl && (
                 <Grid item xs={12}>
                   <iframe
-                    src={process.env.REACT_API_URL}
+                    src={process.env.REACT_APP_API_URL}
+                    title="editor"
                     width="100%"
                     height="100%"
                   />
