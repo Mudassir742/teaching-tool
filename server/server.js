@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 const fetchWebsite = (url) => {
-  execSync(`wget -q -O - ${url} > site.html`, (error, stdout, stderr) => {
+  execSync(`wget -q -O - ${url} > /tmp/site.html`, (error, stdout, stderr) => {
     if (error !== null) {
       return false;
     }
@@ -22,10 +22,11 @@ const fetchWebsite = (url) => {
 
 app.get("/", async (req, res) => {
   try {
-    fs.writeFileSync("site.html", "", () => console.log("Created site.html"));
-    fs.createReadStream("site.html").pipe(res);
+    fs.writeFileSync("./tmp/site.html", "", () => console.log("Created site.html"));
+    fs.createReadStream("/tmp/site.html").pipe(res);
     fetchWebsite("https://clideo.com/editor/");
   } catch (error) {
+    console.log(error.message)
     return res.status(500).json({ error: "server error" });
   }
 });
