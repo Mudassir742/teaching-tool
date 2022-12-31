@@ -157,7 +157,7 @@ const App = () => {
           </Card>
         </CustomDrawer>
 
-        <Grid item xs={12} spacing={1} className="screens">
+        <Grid item xs={12} className="screens">
           <Card className="card">
             <Menu className="menuIcon" onClick={() => setIsOpenSidebar(true)} />
             <Grid container className="screenContainer">
@@ -187,7 +187,7 @@ const App = () => {
                 <Grid
                   item
                   xs={5}
-                  style={{ position: "absolute", right: 0, bottom: "20px" }}
+                  style={{ position: "absolute", right: "5px", bottom: "20px" }}
                 >
                   <WebCam />
                 </Grid>
