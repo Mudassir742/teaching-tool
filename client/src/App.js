@@ -154,6 +154,26 @@ const App = () => {
             >
               Edit Video
             </Button>
+            <Button
+              variant={"outlined"}
+              color="secondary"
+              sx={{ marginBottom: ".8rem", width: "100%" }}
+              startIcon={<DesignServices />}
+              onClick={() => {
+                setwhiteboardFlag(false);
+                setNoteFlag(false);
+                setcamFlag(false);
+                setscreenFlag(false);
+              }}
+              //disabled={!mediaBlobUrl ? true : false}
+            >
+              <a
+                href = "https://clideo.com/editor/"
+                target="_blank"
+              >
+                Edit Online
+              </a>
+            </Button>
           </Card>
         </CustomDrawer>
 
